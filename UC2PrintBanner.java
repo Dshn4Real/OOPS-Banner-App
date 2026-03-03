@@ -1,8 +1,13 @@
+import java.util.HashMap;
+import java.util.Map;
+
 public class UC2PrintBanner {
 
     public static void main(String[] args) {
 
-        String[] O = {
+        Map<Character, CharacterPattern> patternMap = new HashMap<>();
+
+        patternMap.put('O', new CharacterPattern(new String[]{
             "  *****  ",
             " **   ** ",
             "**     **",
@@ -10,9 +15,9 @@ public class UC2PrintBanner {
             "**     **",
             " **   ** ",
             "  *****  "
-        };
+        }));
 
-        String[] P = {
+        patternMap.put('P', new CharacterPattern(new String[]{
             " ******  ",
             " **   ** ",
             "**     **",
@@ -20,9 +25,9 @@ public class UC2PrintBanner {
             "**        ",
             "**        ",
             "**        "
-        };
+        }));
 
-        String[] S = {
+        patternMap.put('S', new CharacterPattern(new String[]{
             "  *****  ",
             " **   ** ",
             "**        ",
@@ -30,19 +35,15 @@ public class UC2PrintBanner {
             "       **",
             " **   ** ",
             "  *****  "
-        };
+        }));
 
-        CharacterPattern letterO = new CharacterPattern(O);
-        CharacterPattern letterP = new CharacterPattern(P);
-        CharacterPattern letterS = new CharacterPattern(S);
+        String word = "OOPS";
 
         for (int i = 0; i < 7; i++) {
-            System.out.println(
-                letterO.getLine(i) +
-                letterO.getLine(i) +
-                letterP.getLine(i) +
-                letterS.getLine(i)
-            );
+            for (char c : word.toCharArray()) {
+                System.out.print(patternMap.get(c).getLine(i));
+            }
+            System.out.println();
         }
     }
 }
