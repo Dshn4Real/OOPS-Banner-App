@@ -1,13 +1,8 @@
 /**
  * OOPSBannerApp UC6 – OOPS Banner Application
  *
- * This use case extends UC5 by implementing a modular approach
- * to generate each letter's pattern through dedicated methods.
- *
- * @author Developer
- * @version 6.0
+ * Refactors banner logic into reusable helper methods.
  */
-
 public class OOPSBannerApp {
 
     // Method to generate pattern for letter O
@@ -49,15 +44,12 @@ public class OOPSBannerApp {
         };
     }
 
-    // Main method
     public static void main(String[] args) {
 
-        // Declare arrays using helper methods
         String[] oPattern = getOPattern();
         String[] pPattern = getPPattern();
         String[] sPattern = getSPattern();
 
-        // Print banner using loop
         for (int i = 0; i < oPattern.length; i++) {
             System.out.println(
                     oPattern[i] +
